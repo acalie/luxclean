@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxClean - Premium Home Cleaning Services in Luxembourg</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #1a1a1a;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            border-radius: 12px;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(52,152,219,0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(46,204,113,0.3);
+        }
+
+        .nav {
+            display: flex;
+            gap: 0.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .nav-btn.active {
+            background: rgba(255,255,255,0.2);
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 4rem;
+            margin-bottom: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(102,126,234,0.3);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-hero-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .btn-hero-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+        .tax-card {
+            text-align: center;
+        }
+
+        .tax-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tax-rate {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .tax-breakdown {
+            margin-bottom: 1.5rem;
+        }
+
+        .tax-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .tax-row.total {
+            padding-top: 1rem;
+            border-top: 2px solid #f0f0f0;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .tax-row.deduction {
+            color: #2ecc71;
+        }
+
+        .tax-savings {
+            font-size: 0.9rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        .feature-card {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .feature-desc {
+            font-size: 1.05rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cleaner-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 2px solid #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cleaner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+        .cleaner-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .available-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #2ecc71;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .available-dot {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .cleaner-photo {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cleaner-name {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .cleaner-body {
+            padding: 2rem;
+        }
+
+        .rating-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .star {
+            color: #f39c12;
+        }
+
+        .rating-score {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .rating-count {
+            color: #888;
+            font-size: 1rem;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .stat-value.success {
+            color: #2ecc71;
+        }
+
+        .specialties {
+            margin-bottom: 1.5rem;
+        }
+
+        .specialty-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .filter-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .filter-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-link {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .process-step.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .process-icon {
+            font-size: 6rem;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .process-content {
+            flex: 1;
+        }
+
+        .step-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .step-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .step-desc {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .quality-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            border-radius: 20px;
+            padding: 4rem;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .quality-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .quality-icon {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-size: 2rem;
+        }
+
+        .quality-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quality-desc {
+            font-size: 1rem;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+        .product-image {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #e74c3c;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .product-body {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            color: #888;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-current {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .price-original {
+            font-size: 1.2rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .benefit-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 2px solid #f0f0f0;
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .benefit-desc {
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 3px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+        }
+
+        .cert-card.bronze {
+            border-color: #cd7f32;
+        }
+
+        .cert-card.bronze::before {
+            background: #cd7f32;
+        }
+
+        .cert-card.silver {
+            border-color: #c0c0c0;
+        }
+
+        .cert-card.silver::before {
+            background: #c0c0c0;
+        }
+
+        .cert-card.gold {
+            border-color: #ffd700;
+        }
+
+        .cert-card.gold::before {
+            background: #ffd700;
+        }
+
+        .cert-card.platinum {
+            border-color: #e5e4e2;
+        }
+
+        .cert-card.platinum::before {
+            background: #e5e4e2;
+        }
+
+        .cert-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .cert-name {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .cert-level {
+            text-align: center;
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .cert-desc {
+            text-align: center;
+            color: #666;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .cert-price {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 4rem;
+            text-align: center;
+            color: white;
+            box-shadow: 0 20px 60px rgba(102,126,234,0.3);
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-desc {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-note {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .why-buy-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .why-buy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-buy-item {
+            text-align: center;
+        }
+
+        .why-buy-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-buy-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .why-buy-desc {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .process-step,
+            .process-step.reverse {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-top {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-top">
+                <div class="logo-section">
+                    <div class="logo-icon">✨</div>
+                    <div class="logo-text">
+                        <h1>LuxClean</h1>
+                        <p>Premium Home Cleaning Services</p>
+                    </div>
+                </div>
+                <div class="header-buttons">
+                    <button class="btn btn-secondary">Sign In</button>
+                    <button class="btn btn-primary">Get Started</button>
+                </div>
+            </div>
+            
+            <nav class="nav">
+                <button class="nav-btn active" onclick="showTab('home')">Home</button>
+                <button class="nav-btn" onclick="showTab('cleaners')">Cleaners</button>
+                <button class="nav-btn" onclick="showTab('how-it-works')">How It Works</button>
+                <button class="nav-btn" onclick="showTab('shop')">Shop</button>
+                <button class="nav-btn" onclick="showTab('careers')">Careers</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- HOME TAB -->
+        <div id="tab-home" class="tab-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Professional Home Cleaning with Tax Benefits</h2>
+                    <p>Save up to 42% with Luxembourg tax deductions. Up to €5,400 deductible per year.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-large btn-hero-primary" onclick="showTab('cleaners')">Book a Cleaner</button>
+                        <button class="btn-large btn-hero-secondary" onclick="showTab('careers')">Become a Cleaner</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tax Benefits -->
+            <section>
+                <h3 class="section-title">Your Real Cost After Tax Benefits</h3>
+                <div class="grid grid-3">
+                    <div class="card tax-card">
+                        <div class="tax-icon">💰</div>
+                        <div class="tax-rate">Tax Rate: 42%</div>
+                        <div class="tax-breakdown">
+                            <div class="tax-row">
+                                <span>Annual Cost:</span>
+                                <span style="font-weight: 600;">€3,600</span>
+                            </div>
+                            <div class="tax-row deduction">
+                                <span>Tax Deduction:</span>
+                                <span style="font-weight: 600;">-€1,512</span>
+                            </div>
+                            <div class="tax-row total">
+                                <span>Real Cost:</span>
+                                <span>€2,088</span>
+                            </div>
+                        </div>
+                        <div class="tax-savings">Save 42%</div>
+                    </div>
+
+                    <div class="card tax-card">
+                        <div class="tax-icon">💰</div>
+                        <div class="tax-rate">Tax Rate: 42%</div>
+                        <div class="tax-breakdown">
+                            <div class="tax-row">
+                                <span>Annual Cost:</span>
+                                <span style="font-weight: 600;">€5,400</span>
+                            </div>
+                            <div class="tax-row deduction">
+                                <span>Tax Deduction:</span>
+                                <span style="font-weight: 600;">-€2,268</span>
+                            </div>
+                            <div class="tax-row total">
+                                <span>Real Cost:</span>
+                                <span>€3,132</span>
+                            </div>
+                        </div>
+                        <div class="tax-savings">Save 42%</div>
+                    </div>
+
+                    <div class="card tax-card">
+                        <div class="tax-icon">💰</div>
+                        <div class="tax-rate">Tax Rate: 30%</div>
+                        <div class="tax-breakdown">
+                            <div class="tax-row">
+                                <span>Annual Cost:</span>
+                                <span style="font-weight: 600;">€3,600</span>
+                            </div>
+                            <div class="tax-row deduction">
+                                <span>Tax Deduction:</span>
+                                <span style="font-weight: 600;">-€1,080</span>
+                            </div>
+                            <div class="tax-row total">
+                                <span>Real Cost:</span>
+                                <span>€2,520</span>
+                            </div>
+                        </div>
+                        <div class="tax-savings">Save 30%</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Features -->
+            <section>
+                <h3 class="section-title">Why Choose LuxClean</h3>
+                <div class="grid grid-4">
+                    <div class="card feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h4 class="feature-title">Quality Assured</h4>
+                        <p class="feature-desc">Smart glasses record every session for transparency</p>
+                    </div>
+                    <div class="card feature-card">
+                        <div class="feature-icon">⭐</div>
+                        <h4 class="feature-title">Verified Professionals</h4>
+                        <p class="feature-desc">Background checked and certified cleaners</p>
+                    </div>
+                    <div class="card feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h4 class="feature-title">Training & Certification</h4>
+                        <p class="feature-desc">Proprietary training programs and skill levels</p>
+                    </div>
+                    <div class="card feature-card">
+                        <div class="feature-icon">🛍️</div>
+                        <h4 class="feature-title">Professional Tools</h4>
+                        <p class="feature-desc">Buy the same products cleaners use at 20-30% off</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CLEANERS TAB -->
+        <div id="tab-cleaners" class="tab-content hidden">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem; font-weight: 700;">Find Your Perfect Cleaner</h2>
+            
+            <!-- Filters -->
+            <div class="filter-section">
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label>Specialty</label>
+                        <select>
+                            <option>All Specialties</option>
+                            <option>Deep Cleaning</option>
+                            <option>Eco-Friendly</option>
+                            <option>Luxury Materials</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Price Range</label>
+                        <select>
+                            <option>Any Price</option>
+                            <option>€25-30/hr</option>
+                            <option>€30-35/hr</option>
+                            <option>€35+/hr</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Certification</label>
+                        <select>
+                            <option>All Levels</option>
+                            <option>Bronze+</option>
+                            <option>Silver+</option>
+                            <option>Gold+</option>
+                            <option>Platinum</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Availability</label>
+                        <select>
+                            <option>Any Time</option>
+                            <option>Available Now</option>
+                            <option>This Week</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cleaner Cards -->
+            <div class="grid grid-3">
+                <!-- Cleaner 1 -->
+                <div class="cleaner-card">
+                    <div class="cleaner-header">
+                        <div class="available-badge">
+                            <div class="available-dot"></div>
+                            Available
+                        </div>
+                        <div class="cleaner-photo">👩‍💼</div>
+                        <h3 class="cleaner-name">Maria Silva</h3>
+                        <div class="badges">
+                            <span class="badge">Platinum</span>
+                            <span class="badge">Eco Certified</span>
+                        </div>
+                    </div>
+                    <div class="cleaner-body">
+                        <div class="rating-price">
+                            <div class="rating">
+                                <span class="star">⭐</span>
+                                <span class="rating-score">4.9</span>
+                                <span class="rating-count">(287 reviews)</span>
+                            </div>
+                            <div class="price">€35/hr</div>
+                        </div>
+                        <div class="stats">
+                            <div>
+                                <div class="stat-label">Completed Jobs</div>
+                                <div class="stat-value">534</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Repeat Rate</div>
+                                <div class="stat-value success">89%</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Experience</div>
+                                <div class="stat-value">5 years</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Languages</div>
+                                <div style="font-size: 0.95rem; font-weight: 600;">EN, FR, PT</div>
+                            </div>
+                        </div>
+                        <div class="specialties">
+                            <div class="stat-label">Specialties</div>
+                            <div class="specialty-tags">
+                                <span class="tag">Deep Cleaning</span>
+                                <span class="tag">Eco-Friendly</span>
+                            </div>
+                        </div>
+                        <button class="btn-large btn-hero-primary" style="width: 100%;">View Profile & Book</button>
+                    </div>
+                </div>
+
+                <!-- Cleaner 2 -->
+                <div class="cleaner-card">
+                    <div class="cleaner-header">
+                        <div class="available-badge">
+                            <div class="available-dot"></div>
+                            Available
+                        </div>
+                        <div class="cleaner-photo">👱‍♀️</div>
+                        <h3 class="cleaner-name">Anna Kowalski</h3>
+                        <div class="badges">
+                            <span class="badge">Gold</span>
+                            <span class="badge">Luxury Certified</span>
+                        </div>
+                    </div>
+                    <div class="cleaner-body">
+                        <div class="rating-price">
+                            <div class="rating">
+                                <span class="star">⭐</span>
+                                <span class="rating-score">4.8</span>
+                                <span class="rating-count">(198 reviews)</span>
+                            </div>
+                            <div class="price">€32/hr</div>
+                        </div>
+                        <div class="stats">
+                            <div>
+                                <div class="stat-label">Completed Jobs</div>
+                                <div class="stat-value">312</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Repeat Rate</div>
+                                <div class="stat-value success">85%</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Experience</div>
+                                <div class="stat-value">3 years</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Languages</div>
+                                <div style="font-size: 0.95rem; font-weight: 600;">DE, EN, PL</div>
+                            </div>
+                        </div>
+                        <div class="specialties">
+                            <div class="stat-label">Specialties</div>
+                            <div class="specialty-tags">
+                                <span class="tag">Luxury Materials</span>
+                                <span class="tag">Allergy-Safe</span>
+                            </div>
+                        </div>
+                        <button class="btn-large btn-hero-primary" style="width: 100%;">View Profile & Book</button>
+                    </div>
+                </div>
+
+                <!-- Cleaner 3 -->
+                <div class="cleaner-card">
+                    <div class="cleaner-header">
+                        <div class="cleaner-photo">👩</div>
+                        <h3 class="cleaner-name">Sophie Laurent</h3>
+                        <div class="badges">
+                            <span class="badge">Silver</span>
+                        </div>
+                    </div>
+                    <div class="cleaner-body">
+                        <div class="rating-price">
+                            <div class="rating">
+                                <span class="star">⭐</span>
+                                <span class="rating-score">4.7</span>
+                                <span class="rating-count">(156 reviews)</span>
+                            </div>
+                            <div class="price">€30/hr</div>
+                        </div>
+                        <div class="stats">
+                            <div>
+                                <div class="stat-label">Completed Jobs</div>
+                                <div class="stat-value">189</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Repeat Rate</div>
+                                <div class="stat-value success">78%</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Experience</div>
+                                <div class="stat-value">2 years</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Languages</div>
+                                <div style="font-size: 0.95rem; font-weight: 600;">FR, EN</div>
+                            </div>
+                        </div>
+                        <div class="specialties">
+                            <div class="stat-label">Specialties</div>
+                            <div class="specialty-tags">
+                                <span class="tag">Regular Maintenance</span>
+                                <span class="tag">Quick Service</span>
+                            </div>
+                        </div>
+                        <button class="btn-large btn-hero-primary" style="width: 100%;">View Profile & Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOW IT WORKS TAB -->
+        <div id="tab-how-it-works" class="tab-content hidden">
+            <h2 class="section-title" style="font-size: 3rem; margin-bottom: 3rem;">How LuxClean Works</h2>
+
+            <!-- Process Steps -->
+            <div class="process-step">
+                <div class="process-icon">🔍</div>
+                <div class="process-content">
+                    <div class="step-badge">Step 1</div>
+                    <h3 class="step-title">Browse & Select</h3>
+                    <p class="step-desc">Search certified cleaners by specialty, rating, and availability. View detailed profiles with real customer reviews.</p>
+                </div>
+            </div>
+
+            <div class="process-step reverse">
+                <div class="process-icon">📅</div>
+                <div class="process-content">
+                    <div class="step-badge">Step 2</div>
+                    <h3 class="step-title">Book Your Session</h3>
+                    <p class="step-desc">Choose your preferred time slot. Set up one-time or recurring appointments. Minimum 2 hours per session.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="process-icon">🎥</div>
+                <div class="process-content">
+                    <div class="step-badge">Step 3</div>
+                    <h3 class="step-title">Quality Guaranteed</h3>
+                    <p class="step-desc">Cleaners wear smart glasses that record the entire session. AI monitors work quality and detects any issues in real-time.</p>
+                </div>
+            </div>
+
+            <div class="process-step reverse">
+                <div class="process-icon">💳</div>
+                <div class="process-content">
+                    <div class="step-badge">Step 4</div>
+                    <h3 class="step-title">Pay & Save</h3>
+                    <p class="step-desc">Automatic payment after service. Receive tax-compliant invoices. Deduct up to €5,400 per year on your Luxembourg taxes.</p>
+                </div>
+            </div>
+
+            <!-- Quality Assurance Section -->
+            <section class="quality-section">
+                <h3 class="section-title" style="color: white;">Smart Glasses Quality Assurance</h3>
+                <div class="quality-grid">
+                    <div class="quality-card">
+                        <div class="quality-icon">🎥</div>
+                        <h4 class="quality-title">Continuous Recording</h4>
+                        <p class="quality-desc">Every cleaning session is recorded from the cleaner's perspective</p>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-icon">👁️</div>
+                        <h4 class="quality-title">AI Monitoring</h4>
+                        <p class="quality-desc">Advanced AI detects suspicious behavior and work interruptions</p>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-icon">🛡️</div>
+                        <h4 class="quality-title">Secure Storage</h4>
+                        <p class="quality-desc">Encrypted video storage, auto-deleted after 14 days for privacy</p>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-icon">✅</div>
+                        <h4 class="quality-title">Payment Protection</h4>
+                        <p class="quality-desc">Cleaners only paid if work is verified and no issues detected</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SHOP TAB -->
+        <div id="tab-shop" class="tab-content hidden">
+            <h2 style="font-size: 3rem; margin-bottom: 1rem; font-weight: 700;">Professional Cleaning Products</h2>
+            <p style="font-size: 1.3rem; color: #666; margin-bottom: 3rem;">
+                Buy the same products our certified cleaners use - at 20-30% discount
+            </p>
+
+            <div class="grid grid-3">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        🧴
+                        <div class="discount-badge">-28%</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-category">Kits</div>
+                        <h4 class="product-name">Eco-Friendly Starter Kit</h4>
+                        <div class="product-price">
+                            <span class="price-current">€79</span>
+                            <span class="price-original">€109</span>
+                        </div>
+                        <button class="btn-large" style="width: 100%; background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); color: white; border: none;">
+                            🛍️ Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        🧴
+                        <div class="discount-badge">-31%</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-category">Tools</div>
+                        <h4 class="product-name">Microfiber Pro Set</h4>
+                        <div class="product-price">
+                            <span class="price-current">€45</span>
+                            <span class="price-original">€65</span>
+                        </div>
+                        <button class="btn-large" style="width: 100%; background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); color: white; border: none;">
+                            🛍️ Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        🧴
+                        <div class="discount-badge">-28%</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-category">Products</div>
+                        <h4 class="product-name">Natural Multi-Surface Cleaner</h4>
+                        <div class="product-price">
+                            <span class="price-current">€18</span>
+                            <span class="price-original">€25</span>
+                        </div>
+                        <button class="btn-large" style="width: 100%; background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); color: white; border: none;">
+                            🛍️ Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        🧴
+                        <div class="discount-badge">-29%</div>
+                    </div>
+                    <div class="product-body">
+                        <div class="product-category">Kits</div>
+                        <h4 class="product-name">Premium Bathroom Kit</h4>
+                        <div class="product-price">
+                            <span class="price-current">€89</span>
+                            <span class="price-original">€125</span>
+                        </div>
+                        <button class="btn-large" style="width: 100%; background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); color: white; border: none;">
+                            🛍️ Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Buy Section -->
+            <section class="why-buy-section">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem; font-weight: 700; text-align: center;">
+                    ✨ Why Buy Professional Products?
+                </h3>
+                <div class="why-buy-grid">
+                    <div class="why-buy-item">
+                        <div class="why-buy-icon">🏆</div>
+                        <h4 class="why-buy-title">Used by Pros</h4>
+                        <p class="why-buy-desc">Same products our certified cleaners use daily</p>
+                    </div>
+                    <div class="why-buy-item">
+                        <div class="why-buy-icon">💰</div>
+                        <h4 class="why-buy-title">Best Prices</h4>
+                        <p class="why-buy-desc">20-30% cheaper than retail stores</p>
+                    </div>
+                    <div class="why-buy-item">
+                        <div class="why-buy-icon">📚</div>
+                        <h4 class="why-buy-title">Learn Techniques</h4>
+                        <p class="why-buy-desc">Instructions from professional cleaners included</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CAREERS TAB -->
+        <div id="tab-careers" class="tab-content hidden">
+            <h2 style="font-size: 3rem; margin-bottom: 1rem; font-weight: 700;">Join Our Team of Professional Cleaners</h2>
+            <p style="font-size: 1.3rem; color: #666; margin-bottom: 3rem;">
+                Flexible schedule • Professional training • Competitive pay • Career growth
+            </p>
+
+            <!-- Benefits -->
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 4rem;">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💶</div>
+                    <h4 class="benefit-title">Earn €25-45/hour</h4>
+                    <p class="benefit-desc">Set your own rates based on experience and specialization</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⏰</div>
+                    <h4 class="benefit-title">Work When You Want</h4>
+                    <p class="benefit-desc">Set your availability weekly. No minimum hours required.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎓</div>
+                    <h4 class="benefit-title">Free Training</h4>
+                    <p class="benefit-desc">Professional certification programs at no cost to you</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h4 class="benefit-title">Grow Your Career</h4>
+                    <p class="benefit-desc">Bronze to Platinum levels with increasing pay potential</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💳</div>
+                    <h4 class="benefit-title">Fast Payment</h4>
+                    <p class="benefit-desc">Get paid within 48 hours after completing each job</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h4 class="benefit-title">Insurance Covered</h4>
+                    <p class="benefit-desc">Full liability and accident insurance provided</p>
+                </div>
+            </div>
+
+            <!-- Certification Levels -->
+            <section style="margin-bottom: 4rem;">
+                <h3 class="section-title">Certification Levels & Training</h3>
+                <div class="grid grid-4">
+                    <div class="cert-card bronze">
+                        <div class="cert-icon">🥉</div>
+                        <h4 class="cert-name">Bronze Certification</h4>
+                        <div class="cert-level">Basic</div>
+                        <p class="cert-desc">Essential cleaning techniques</p>
+                        <div class="cert-price">FREE</div>
+                    </div>
+                    <div class="cert-card silver">
+                        <div class="cert-icon">🥈</div>
+                        <h4 class="cert-name">Silver Certification</h4>
+                        <div class="cert-level">Professional</div>
+                        <p class="cert-desc">Advanced methods & specialization</p>
+                        <div class="cert-price">€199</div>
+                    </div>
+                    <div class="cert-card gold">
+                        <div class="cert-icon">🥇</div>
+                        <h4 class="cert-name">Gold Certification</h4>
+                        <div class="cert-level">Expert</div>
+                        <p class="cert-desc">Luxury materials & complex cleaning</p>
+                        <div class="cert-price">€299</div>
+                    </div>
+                    <div class="cert-card platinum">
+                        <div class="cert-icon">💎</div>
+                        <h4 class="cert-name">Platinum Certification</h4>
+                        <div class="cert-level">Master</div>
+                        <p class="cert-desc">All specializations mastered</p>
+                        <div class="cert-price">€499</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="cta-section">
+                <h3 class="cta-title">Ready to Start Your Career?</h3>
+                <p class="cta-desc">
+                    Join hundreds of professional cleaners earning great income with flexible schedules. 
+                    Apply now and start your training within days.
+                </p>
+                <button class="btn-large btn-hero-primary">Apply Now - It's Free</button>
+                <div class="cta-note">
+                    ✓ Background check required  •  ✓ No experience needed  •  ✓ Training provided
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <h4 class="footer-title">LuxClean</h4>
+                    <p class="footer-text">
+                        Luxembourg's premier home cleaning marketplace with guaranteed tax benefits and quality assurance.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="footer-subtitle">For Customers</h5>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Find Cleaners</a>
+                        <a href="#" class="footer-link">How It Works</a>
+                        <a href="#" class="footer-link">Tax Benefits</a>
+                        <a href="#" class="footer-link">Shop Products</a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="footer-subtitle">For Cleaners</h5>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Apply Now</a>
+                        <a href="#" class="footer-link">Certifications</a>
+                        <a href="#" class="footer-link">Training</a>
+                        <a href="#" class="footer-link">Cleaner Portal</a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="footer-subtitle">Company</h5>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">About Us</a>
+                        <a href="#" class="footer-link">Contact</a>
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2024 LuxClean. All rights reserved. Registered in Luxembourg.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            
+            // Remove active class from all nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById('tab-' + tabName).classList.remove('hidden');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
