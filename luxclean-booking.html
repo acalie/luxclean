@@ -243,6 +243,8 @@
             cursor: pointer;
             transition: all 0.3s;
             padding: 0.5rem;
+            background: white;
+            color: #1a1a1a;
         }
 
         .calendar-day:hover:not(.disabled) {
@@ -253,12 +255,13 @@
         .calendar-day.selected {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-color: #667eea;
-            color: white;
+            color: white !important;
         }
 
         .calendar-day.disabled {
             opacity: 0.3;
             cursor: not-allowed;
+            background: #f5f5f5;
         }
 
         .day-name {
@@ -270,10 +273,12 @@
         .day-number {
             font-size: 1.2rem;
             font-weight: 700;
+            color: inherit;
         }
 
-        .calendar-day.selected .day-name {
-            color: rgba(255,255,255,0.8);
+        .calendar-day.selected .day-name,
+        .calendar-day.selected .day-number {
+            color: white !important;
         }
 
         /* Time Slots */
@@ -291,6 +296,8 @@
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 600;
+            background: white;
+            color: #1a1a1a;
         }
 
         .time-slot:hover:not(.unavailable) {
@@ -301,12 +308,14 @@
         .time-slot.selected {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-color: #667eea;
-            color: white;
+            color: white !important;
+            font-weight: 700;
         }
 
         .time-slot.unavailable {
             opacity: 0.3;
             cursor: not-allowed;
+            background: #f5f5f5;
         }
 
         /* Service Options */
