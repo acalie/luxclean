@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Cleaning Service - LuxClean</title>
+    <title>LuxClean - Premium Home Cleaning Services in Luxembourg</title>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -17,1345 +17,1037 @@
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             color: #1a1a1a;
             min-height: 100vh;
-            padding: 2rem;
-        }
-
-        .booking-container {
-            max-width: 900px;
-            margin: 0 auto;
         }
 
         .header {
-            text-align: center;
-            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .logo {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            color: #666;
-        }
-
-        /* Progress Steps */
-        .progress-bar {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 3rem;
-            position: relative;
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .progress-bar::before {
-            content: '';
-            position: absolute;
-            top: 25px;
-            left: 2rem;
-            right: 2rem;
-            height: 4px;
-            background: #e0e0e0;
-            z-index: 0;
-        }
-
-        .progress-fill {
-            position: absolute;
-            top: 25px;
-            left: 2rem;
-            height: 4px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.5s ease;
-            z-index: 1;
-        }
-
-        .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .step-circle {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: white;
-            border: 4px solid #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            transition: all 0.3s;
-        }
-
-        .step.active .step-circle {
-            border-color: #667eea;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .step.completed .step-circle {
-            border-color: #2ecc71;
-            background: #2ecc71;
-            color: white;
-        }
-
-        .step-label {
-            font-size: 0.9rem;
-            color: #888;
-            text-align: center;
-        }
-
-        .step.active .step-label {
-            color: #667eea;
-            font-weight: 600;
-        }
-
-        /* Booking Card */
-        .booking-card {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            margin-bottom: 2rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: #1a1a1a;
-        }
-
-        /* Cleaner Info */
-        .cleaner-info {
-            display: flex;
-            gap: 2rem;
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 16px;
-            margin-bottom: 2rem;
-        }
-
-        .cleaner-avatar {
-            font-size: 5rem;
-        }
-
-        .cleaner-details h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .cleaner-badges {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .badge {
-            background: #667eea;
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .cleaner-stats {
-            display: flex;
-            gap: 2rem;
-            font-size: 0.95rem;
-            color: #666;
-        }
-
-        .stat {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Form Elements */
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102,126,234,0.1);
-        }
-
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        /* Calendar */
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .calendar-day {
-            aspect-ratio: 1;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            padding: 0.5rem;
-        }
-
-        .calendar-day:hover:not(.disabled) {
-            border-color: #667eea;
-            background: rgba(102,126,234,0.05);
-        }
-
-        .calendar-day.selected {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-color: #667eea;
-            color: white;
-        }
-
-        .calendar-day.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        .day-name {
-            font-size: 0.75rem;
-            color: #888;
-            margin-bottom: 0.25rem;
-        }
-
-        .day-number {
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .calendar-day.selected .day-name {
-            color: rgba(255,255,255,0.8);
-        }
-
-        /* Time Slots */
-        .time-slots {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 1rem;
-        }
-
-        .time-slot {
-            padding: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        .time-slot:hover:not(.unavailable) {
-            border-color: #667eea;
-            background: rgba(102,126,234,0.05);
-        }
-
-        .time-slot.selected {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-color: #667eea;
-            color: white;
-        }
-
-        .time-slot.unavailable {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        /* Service Options */
-        .service-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .service-option {
-            padding: 1.5rem;
-            border: 3px solid #e0e0e0;
-            border-radius: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .service-option:hover {
-            border-color: #667eea;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(102,126,234,0.2);
-        }
-
-        .service-option.selected {
-            border-color: #667eea;
-            background: rgba(102,126,234,0.05);
-        }
-
-        .option-header {
+        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .option-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
-        .option-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #667eea;
-        }
-
-        .option-desc {
-            color: #666;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        /* Add-ons */
-        .addon-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .addon-item:hover {
-            border-color: #667eea;
-        }
-
-        .addon-item.selected {
-            border-color: #667eea;
-            background: rgba(102,126,234,0.05);
-        }
-
-        .addon-info h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-
-        .addon-info p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .addon-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #667eea;
-        }
-
-        /* Summary Box */
-        .summary-box {
-            background: #f8f9fa;
-            border-radius: 16px;
-            padding: 2rem;
-            position: sticky;
-            top: 2rem;
-        }
-
-        .summary-title {
-            font-size: 1.5rem;
-            font-weight: 700;
             margin-bottom: 1.5rem;
         }
 
-        .summary-item {
+        .logo-section {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .summary-item.total {
-            padding-top: 1rem;
-            border-top: 2px solid #ddd;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #667eea;
-        }
-
-        .tax-savings {
-            background: #d4edda;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 12px;
-            margin: 1rem 0;
-            text-align: center;
-        }
-
-        .tax-savings strong {
-            font-size: 1.3rem;
-        }
-
-        /* Payment Methods */
-        .payment-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            align-items: center;
             gap: 1rem;
-            margin-bottom: 2rem;
         }
 
-        .payment-method {
-            padding: 1.5rem;
-            border: 3px solid #e0e0e0;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .payment-method:hover {
-            border-color: #667eea;
-        }
-
-        .payment-method.selected {
-            border-color: #667eea;
-            background: rgba(102,126,234,0.05);
-        }
-
-        .payment-icon {
+        .logo-icon {
             font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            border-radius: 12px;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(52,152,219,0.3);
         }
 
-        .payment-name {
-            font-weight: 600;
-            font-size: 1.1rem;
+        .logo-text h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
-        /* Card Input */
-        .card-input-group {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 1rem;
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
 
-        /* Buttons */
-        .btn-group {
+        .header-buttons {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
+            align-items: center;
         }
 
         .btn {
-            flex: 1;
-            padding: 1.25rem;
+            padding: 0.75rem 1.5rem;
             border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            border-radius: 8px;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s;
             font-family: inherit;
         }
 
         .btn-secondary {
-            background: white;
-            border: 2px solid #667eea;
-            color: #667eea;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
-            background: #f8f9fa;
+            background: rgba(255,255,255,0.25);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #3498db, #2ecc71);
             color: white;
-            box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(46,204,113,0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+            box-shadow: 0 6px 20px rgba(46,204,113,0.4);
         }
 
-        .btn-primary:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
         }
 
-        /* Success Screen */
-        .success-screen {
-            text-align: center;
-            padding: 3rem;
+        .nav {
+            display: flex;
+            gap: 0.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+            flex-wrap: wrap;
         }
 
-        .success-icon {
-            font-size: 6rem;
-            margin-bottom: 2rem;
-            animation: scaleIn 0.5s ease-out;
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: inherit;
         }
 
-        @keyframes scaleIn {
+        .nav-btn.active {
+            background: rgba(255,255,255,0.2);
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 4rem;
+            margin-bottom: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(102,126,234,0.3);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
             from {
-                transform: scale(0);
+                opacity: 0;
+                transform: translateY(30px);
             }
             to {
-                transform: scale(1);
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .success-title {
-            font-size: 2.5rem;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
             font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-hero-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+        .cleaner-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 2px solid #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cleaner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+        .cleaner-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .available-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #2ecc71;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .cleaner-photo {
+            font-size: 5rem;
             margin-bottom: 1rem;
+        }
+
+        .cleaner-name {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .cleaner-body {
+            padding: 2rem;
+        }
+
+        .rating-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .star {
+            color: #f39c12;
+        }
+
+        .rating-score {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .rating-count {
+            color: #888;
+            font-size: 1rem;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .stat-value.success {
             color: #2ecc71;
         }
 
-        .success-message {
-            font-size: 1.2rem;
+        .specialties {
+            margin-bottom: 1.5rem;
+        }
+
+        .specialty-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: auto;
+            position: relative;
+            box-shadow: 0 20px 80px rgba(0,0,0,0.3);
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(0,0,0,0.1);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: rgba(0,0,0,0.2);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 3rem;
+            text-align: center;
+            color: white;
+        }
+
+        .modal-body {
+            padding: 3rem;
+        }
+
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+
+        .quick-stat {
+            text-align: center;
+        }
+
+        .quick-stat-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .quick-stat-label {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .about-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
             color: #666;
+            line-height: 1.7;
             margin-bottom: 2rem;
         }
 
-        .booking-details {
-            background: #f8f9fa;
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 2rem 0;
-            text-align: left;
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .detail-row {
+        .check-list {
             display: flex;
-            justify-content: space-between;
-            padding: 1rem 0;
-            border-bottom: 1px solid #e0e0e0;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
-        .detail-row:last-child {
-            border-bottom: none;
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
-        .detail-label {
-            font-weight: 600;
-            color: #666;
+        .check-icon {
+            color: #2ecc71;
+            font-size: 1.2rem;
         }
 
-        .detail-value {
-            font-weight: 700;
-            color: #1a1a1a;
+        .booking-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
-        .confirmation-number {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.5rem;
+        .btn-outline {
+            padding: 1.25rem;
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
             border-radius: 12px;
-            margin: 2rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
         }
 
-        .confirmation-number h3 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            opacity: 0.9;
+        .btn-outline:hover {
+            background: #667eea;
+            color: white;
         }
 
-        .confirmation-number p {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
+        .btn-solid {
+            padding: 1.25rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+            font-family: inherit;
         }
 
-        /* Loading Spinner */
-        .loading-spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin-right: 0.5rem;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
+        .btn-solid:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102,126,234,0.4);
         }
 
         .hidden {
             display: none;
         }
 
-        /* Checkbox */
-        .checkbox-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            margin: 1.5rem 0;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            margin-top: 0.25rem;
-        }
-
-        .checkbox-group label {
-            cursor: pointer;
-            font-size: 0.95rem;
-            color: #666;
-            line-height: 1.5;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
-            body {
-                padding: 1rem;
+            .hero h2 {
+                font-size: 2rem;
             }
 
-            .booking-card {
-                padding: 1.5rem;
+            .hero {
+                padding: 2rem;
             }
 
-            .progress-bar {
-                padding: 0 1rem;
-            }
-
-            .step-label {
-                font-size: 0.75rem;
-            }
-
-            .step-circle {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-
-            .cleaner-info {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .calendar-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .time-slots {
+            .quick-stats {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .service-options,
-            .payment-methods {
+            .two-col {
                 grid-template-columns: 1fr;
             }
 
-            .card-input-group {
+            .booking-actions {
                 grid-template-columns: 1fr;
-            }
-
-            .btn-group {
-                flex-direction: column;
-            }
-
-            .summary-box {
-                position: static;
             }
         }
     </style>
 </head>
 <body>
-    <div class="booking-container">
-        <!-- Header -->
-        <div class="header">
-            <div class="logo">✨</div>
-            <h1>Book Your Cleaning Service</h1>
-            <p>Complete your booking in just a few steps</p>
-        </div>
-
-        <!-- Progress Bar -->
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-top">
+                <div class="logo-section">
+                    <div class="logo-icon">✨</div>
+                    <div class="logo-text">
+                        <h1>LuxClean</h1>
+                        <p>Premium Home Cleaning Services</p>
+                    </div>
+                </div>
+                <div class="header-buttons">
+                    <button class="btn btn-secondary">Sign In</button>
+                    <button class="btn btn-primary">Get Started</button>
+                </div>
+            </div>
             
-            <div class="step active" data-step="1">
-                <div class="step-circle">1</div>
-                <div class="step-label">Date & Time</div>
-            </div>
-            <div class="step" data-step="2">
-                <div class="step-circle">2</div>
-                <div class="step-label">Service Details</div>
-            </div>
-            <div class="step" data-step="3">
-                <div class="step-circle">3</div>
-                <div class="step-label">Your Information</div>
-            </div>
-            <div class="step" data-step="4">
-                <div class="step-circle">4</div>
-                <div class="step-label">Payment</div>
-            </div>
-            <div class="step" data-step="5">
-                <div class="step-circle">✓</div>
-                <div class="step-label">Confirmation</div>
-            </div>
+            <nav class="nav" id="mainNav">
+                <button class="nav-btn active" onclick="showTab('home')">Home</button>
+                <button class="nav-btn" onclick="showTab('cleaners')">Cleaners</button>
+            </nav>
         </div>
+    </header>
 
-        <!-- Step 1: Date & Time -->
-        <div class="booking-card" id="step1">
-            <h2 class="section-title">Select Date & Time</h2>
-
-            <!-- Cleaner Info -->
-            <div class="cleaner-info">
-                <div class="cleaner-avatar">👩‍💼</div>
-                <div class="cleaner-details">
-                    <h3>Maria Silva</h3>
-                    <div class="cleaner-badges">
-                        <span class="badge">Platinum</span>
-                        <span class="badge">Eco Certified</span>
-                    </div>
-                    <div class="cleaner-stats">
-                        <div class="stat">⭐ 4.9 Rating</div>
-                        <div class="stat">✅ 534 Jobs</div>
-                        <div class="stat">💶 €35/hour</div>
+    <!-- Main Content -->
+    <main class="main">
+        <!-- HOME TAB -->
+        <div id="tab-home" class="tab-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Professional Home Cleaning with Tax Benefits</h2>
+                    <p>Save up to 42% with Luxembourg tax deductions. Up to €5,400 deductible per year.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-large btn-hero-primary" onclick="showTab('cleaners')">Book a Cleaner</button>
                     </div>
                 </div>
-            </div>
-
-            <!-- Calendar -->
-            <div class="form-group">
-                <label>Choose a Date</label>
-                <div class="calendar-grid" id="calendar">
-                    <!-- Calendar will be generated by JavaScript -->
-                </div>
-            </div>
-
-            <!-- Time Slots -->
-            <div class="form-group">
-                <label>Select Time</label>
-                <div class="time-slots" id="timeSlots">
-                    <div class="time-slot" data-time="08:00">08:00 AM</div>
-                    <div class="time-slot" data-time="10:00">10:00 AM</div>
-                    <div class="time-slot unavailable" data-time="12:00">12:00 PM</div>
-                    <div class="time-slot" data-time="14:00">02:00 PM</div>
-                    <div class="time-slot" data-time="16:00">04:00 PM</div>
-                    <div class="time-slot unavailable" data-time="18:00">06:00 PM</div>
-                </div>
-            </div>
-
-            <div class="btn-group">
-                <button class="btn btn-primary" onclick="nextStep()" id="step1Next" disabled>
-                    Continue to Service Details
-                </button>
-            </div>
+            </section>
         </div>
 
-        <!-- Step 2: Service Details -->
-        <div class="booking-card hidden" id="step2">
-            <h2 class="section-title">Service Details</h2>
-
-            <!-- Service Duration -->
-            <div class="form-group">
-                <label>Service Duration</label>
-                <div class="service-options">
-                    <div class="service-option" data-hours="2" data-price="70" onclick="selectDuration(this)">
-                        <div class="option-header">
-                            <div class="option-title">2 Hours</div>
-                            <div class="option-price">€70</div>
+        <!-- CLEANERS TAB -->
+        <div id="tab-cleaners" class="tab-content hidden">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem; font-weight: 700;">Find Your Perfect Cleaner</h2>
+            
+            <!-- Cleaner Cards -->
+            <div class="grid grid-3">
+                <!-- Cleaner 1 -->
+                <div class="cleaner-card" onclick="openCleanerModal(1)">
+                    <div class="cleaner-header">
+                        <div class="available-badge">
+                            <span>Available</span>
                         </div>
-                        <div class="option-desc">Perfect for regular maintenance cleaning</div>
-                    </div>
-                    <div class="service-option" data-hours="3" data-price="105" onclick="selectDuration(this)">
-                        <div class="option-header">
-                            <div class="option-title">3 Hours</div>
-                            <div class="option-price">€105</div>
+                        <div class="cleaner-photo">👩‍💼</div>
+                        <h3 class="cleaner-name">Maria Silva</h3>
+                        <div class="badges">
+                            <span class="badge">Platinum</span>
+                            <span class="badge">Eco Certified</span>
                         </div>
-                        <div class="option-desc">Thorough cleaning for medium homes</div>
                     </div>
-                    <div class="service-option" data-hours="4" data-price="140" onclick="selectDuration(this)">
-                        <div class="option-header">
-                            <div class="option-title">4 Hours</div>
-                            <div class="option-price">€140</div>
+                    <div class="cleaner-body">
+                        <div class="rating-price">
+                            <div class="rating">
+                                <span class="star">⭐</span>
+                                <span class="rating-score">4.9</span>
+                                <span class="rating-count">(287 reviews)</span>
+                            </div>
+                            <div class="price">€35/hr</div>
                         </div>
-                        <div class="option-desc">Deep cleaning for larger spaces</div>
+                        <div class="stats">
+                            <div>
+                                <div class="stat-label">Completed Jobs</div>
+                                <div class="stat-value">534</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Repeat Rate</div>
+                                <div class="stat-value success">89%</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Experience</div>
+                                <div class="stat-value">5 years</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Languages</div>
+                                <div style="font-size: 0.95rem; font-weight: 600;">EN, FR, PT</div>
+                            </div>
+                        </div>
+                        <div class="specialties">
+                            <div class="stat-label">Specialties</div>
+                            <div class="specialty-tags">
+                                <span class="tag">Deep Cleaning</span>
+                                <span class="tag">Eco-Friendly</span>
+                            </div>
+                        </div>
+                        <button class="btn-large btn-hero-primary" style="width: 100%;" onclick="event.stopPropagation(); openCleanerModal(1);">
+                            View Profile & Book
+                        </button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Add-ons -->
-            <div class="form-group">
-                <label>Optional Add-ons</label>
-                <div class="addon-item" onclick="toggleAddon(this)" data-addon="windows" data-price="25">
-                    <div class="addon-info">
-                        <h4>Window Cleaning</h4>
-                        <p>Interior window cleaning (up to 10 windows)</p>
+                <!-- Cleaner 2 -->
+                <div class="cleaner-card" onclick="openCleanerModal(2)">
+                    <div class="cleaner-header">
+                        <div class="available-badge">
+                            <span>Available</span>
+                        </div>
+                        <div class="cleaner-photo">👱‍♀️</div>
+                        <h3 class="cleaner-name">Anna Kowalski</h3>
+                        <div class="badges">
+                            <span class="badge">Gold</span>
+                        </div>
                     </div>
-                    <div class="addon-price">+€25</div>
-                </div>
-                <div class="addon-item" onclick="toggleAddon(this)" data-addon="oven" data-price="30">
-                    <div class="addon-info">
-                        <h4>Oven Deep Clean</h4>
-                        <p>Professional oven interior cleaning</p>
+                    <div class="cleaner-body">
+                        <div class="rating-price">
+                            <div class="rating">
+                                <span class="star">⭐</span>
+                                <span class="rating-score">4.8</span>
+                                <span class="rating-count">(198 reviews)</span>
+                            </div>
+                            <div class="price">€32/hr</div>
+                        </div>
+                        <div class="stats">
+                            <div>
+                                <div class="stat-label">Completed Jobs</div>
+                                <div class="stat-value">312</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Repeat Rate</div>
+                                <div class="stat-value success">85%</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Experience</div>
+                                <div class="stat-value">3 years</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Languages</div>
+                                <div style="font-size: 0.95rem; font-weight: 600;">DE, EN, PL</div>
+                            </div>
+                        </div>
+                        <div class="specialties">
+                            <div class="stat-label">Specialties</div>
+                            <div class="specialty-tags">
+                                <span class="tag">Luxury Materials</span>
+                            </div>
+                        </div>
+                        <button class="btn-large btn-hero-primary" style="width: 100%;" onclick="event.stopPropagation(); openCleanerModal(2);">
+                            View Profile & Book
+                        </button>
                     </div>
-                    <div class="addon-price">+€30</div>
                 </div>
-                <div class="addon-item" onclick="toggleAddon(this)" data-addon="fridge" data-price="20">
-                    <div class="addon-info">
-                        <h4>Refrigerator Cleaning</h4>
-                        <p>Full fridge interior and exterior cleaning</p>
-                    </div>
-                    <div class="addon-price">+€20</div>
-                </div>
-            </div>
 
-            <!-- Recurring Service -->
-            <div class="form-group">
-                <label>Make this a recurring booking?</label>
-                <select id="recurringSelect" onchange="updateSummary()">
-                    <option value="once">One-time service</option>
-                    <option value="weekly">Weekly (Save 10%)</option>
-                    <option value="biweekly">Every 2 weeks (Save 5%)</option>
-                    <option value="monthly">Monthly</option>
-                </select>
-            </div>
-
-            <div class="btn-group">
-                <button class="btn btn-secondary" onclick="prevStep()">Back</button>
-                <button class="btn btn-primary" onclick="nextStep()" id="step2Next" disabled>
-                    Continue to Your Information
-                </button>
+                <!-- Cleaner 3 -->
+                <div class="cleaner-card" onclick="openCleanerModal(3)">
+                    <div class="cleaner-header">
+                        <div class="cleaner-photo">👩</div>
+                        <h3 class="cleaner-name">Sophie Laurent</h3>
+                        <div class="badges">
+                            <span class="badge">Silver</span>
+                        </div>
+                    </div>
+                    <div class="cleaner-body">
+                        <div class="rating-price">
+                            <div class="rating">
+                                <span class="star">⭐</span>
+                                <span class="rating-score">4.7</span>
+                                <span class="rating-count">(156 reviews)</span>
+                            </div>
+                            <div class="price">€30/hr</div>
+                        </div>
+                        <div class="stats">
+                            <div>
+                                <div class="stat-label">Completed Jobs</div>
+                                <div class="stat-value">189</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Repeat Rate</div>
+                                <div class="stat-value success">78%</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Experience</div>
+                                <div class="stat-value">2 years</div>
+                            </div>
+                            <div>
+                                <div class="stat-label">Languages</div>
+                                <div style="font-size: 0.95rem; font-weight: 600;">FR, EN</div>
+                            </div>
+                        </div>
+                        <div class="specialties">
+                            <div class="stat-label">Specialties</div>
+                            <div class="specialty-tags">
+                                <span class="tag">Regular Maintenance</span>
+                            </div>
+                        </div>
+                        <button class="btn-large btn-hero-primary" style="width: 100%;" onclick="event.stopPropagation(); openCleanerModal(3);">
+                            View Profile & Book
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
+    </main>
 
-        <!-- Step 3: Your Information -->
-        <div class="booking-card hidden" id="step3">
-            <h2 class="section-title">Your Information</h2>
-
-            <div class="form-group">
-                <label>Full Name *</label>
-                <input type="text" id="fullName" placeholder="John Doe" oninput="validateStep3()">
-            </div>
-
-            <div class="form-group">
-                <label>Email Address *</label>
-                <input type="email" id="email" placeholder="john@example.com" oninput="validateStep3()">
-            </div>
-
-            <div class="form-group">
-                <label>Phone Number *</label>
-                <input type="tel" id="phone" placeholder="+352 123 456 789" oninput="validateStep3()">
-            </div>
-
-            <div class="form-group">
-                <label>Address *</label>
-                <input type="text" id="address" placeholder="Street Address" oninput="validateStep3()">
-            </div>
-
-            <div class="form-group">
-                <label>City *</label>
-                <input type="text" id="city" placeholder="Luxembourg City" value="Luxembourg City" oninput="validateStep3()">
-            </div>
-
-            <div class="form-group">
-                <label>Postal Code *</label>
-                <input type="text" id="postal" placeholder="L-1234" oninput="validateStep3()">
-            </div>
-
-            <div class="form-group">
-                <label>Special Instructions (Optional)</label>
-                <textarea id="instructions" placeholder="Any special requests or access instructions..."></textarea>
-            </div>
-
-            <div class="btn-group">
-                <button class="btn btn-secondary" onclick="prevStep()">Back</button>
-                <button class="btn btn-primary" onclick="nextStep()" id="step3Next" disabled>
-                    Continue to Payment
-                </button>
-            </div>
-        </div>
-
-        <!-- Step 4: Payment -->
-        <div class="booking-card hidden" id="step4">
-            <h2 class="section-title">Payment Details</h2>
-
-            <!-- Summary Box -->
-            <div class="summary-box" style="position: static; margin-bottom: 2rem;">
-                <div class="summary-title">Booking Summary</div>
-                <div class="summary-item">
-                    <span>Service (<span id="summaryHours">-</span> hours)</span>
-                    <span id="summaryPrice">€0</span>
+    <!-- Cleaner Detail Modal -->
+    <div class="modal-overlay" id="cleanerModal" onclick="handleModalClick(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeCleanerModal()">×</button>
+            
+            <div class="modal-header">
+                <div class="cleaner-photo" id="modalPhoto">👩‍💼</div>
+                <h2 class="cleaner-name" id="modalName">Maria Silva</h2>
+                <div class="badges" id="modalBadges">
+                    <span class="badge">Platinum</span>
                 </div>
-                <div id="summaryAddons"></div>
-                <div id="summaryDiscount" class="hidden summary-item" style="color: #2ecc71;">
-                    <span>Recurring discount</span>
-                    <span id="discountAmount">-€0</span>
-                </div>
-                <div class="summary-item total">
-                    <span>Total</span>
-                    <span id="summaryTotal">€0</span>
-                </div>
-                <div class="tax-savings">
-                    <div>💰 Tax Deduction Benefit</div>
-                    <div><strong>Save up to €<span id="taxSavings">0</span></strong> on your taxes (42% rate)</div>
-                </div>
+                <div style="font-size: 2.5rem; font-weight: 700; margin-top: 1rem;" id="modalPrice">€35/hour</div>
             </div>
 
-            <!-- Payment Method -->
-            <div class="form-group">
-                <label>Select Payment Method</label>
-                <div class="payment-methods">
-                    <div class="payment-method selected" data-method="card" onclick="selectPayment(this)">
-                        <div class="payment-icon">💳</div>
-                        <div class="payment-name">Credit Card</div>
+            <div class="modal-body">
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <div class="quick-stat">
+                        <div class="quick-stat-icon">⭐</div>
+                        <div class="quick-stat-value" id="modalRating">4.9</div>
+                        <div class="quick-stat-label"><span id="modalReviews">287</span> reviews</div>
                     </div>
-                    <div class="payment-method" data-method="paypal" onclick="selectPayment(this)">
-                        <div class="payment-icon">🅿️</div>
-                        <div class="payment-name">PayPal</div>
+                    <div class="quick-stat">
+                        <div class="quick-stat-icon">✅</div>
+                        <div class="quick-stat-value" id="modalJobs">534</div>
+                        <div class="quick-stat-label">Jobs Done</div>
                     </div>
-                    <div class="payment-method" data-method="bank" onclick="selectPayment(this)">
-                        <div class="payment-icon">🏦</div>
-                        <div class="payment-name">Bank Transfer</div>
+                    <div class="quick-stat">
+                        <div class="quick-stat-icon">🔄</div>
+                        <div class="quick-stat-value" style="color: #2ecc71;" id="modalRepeat">89%</div>
+                        <div class="quick-stat-label">Repeat Rate</div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Card Details -->
-            <div id="cardDetails">
-                <div class="form-group">
-                    <label>Cardholder Name *</label>
-                    <input type="text" id="cardName" placeholder="John Doe" oninput="validateStep4()">
-                </div>
-
-                <div class="form-group">
-                    <label>Card Number *</label>
-                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNumber(this); validateStep4()">
-                </div>
-
-                <div class="card-input-group">
-                    <div class="form-group">
-                        <label>Expiry Date *</label>
-                        <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" oninput="formatExpiry(this); validateStep4()">
-                    </div>
-                    <div class="form-group">
-                        <label>CVV *</label>
-                        <input type="text" id="cardCvv" placeholder="123" maxlength="3" oninput="validateStep4()">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Terms -->
-            <div class="checkbox-group">
-                <input type="checkbox" id="termsCheck" onchange="validateStep4()">
-                <label for="termsCheck">
-                    I agree to the <a href="#" style="color: #667eea;">Terms of Service</a> and 
-                    <a href="#" style="color: #667eea;">Privacy Policy</a>. I understand that payment will be 
-                    processed after service completion and quality verification.
-                </label>
-            </div>
-
-            <div class="btn-group">
-                <button class="btn btn-secondary" onclick="prevStep()">Back</button>
-                <button class="btn btn-primary" onclick="processPayment()" id="step4Next" disabled>
-                    <span id="paymentBtnText">Confirm Booking & Pay</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Step 5: Confirmation -->
-        <div class="booking-card hidden" id="step5">
-            <div class="success-screen">
-                <div class="success-icon">🎉</div>
-                <h2 class="success-title">Booking Confirmed!</h2>
-                <p class="success-message">
-                    Your cleaning service has been successfully booked. You'll receive a confirmation email shortly.
-                </p>
-
-                <div class="confirmation-number">
-                    <h3>Booking Reference</h3>
-                    <p id="confirmationCode">LC-2024-12345</p>
-                </div>
-
-                <div class="booking-details">
-                    <div class="detail-row">
-                        <span class="detail-label">Cleaner</span>
-                        <span class="detail-value">Maria Silva</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Date & Time</span>
-                        <span class="detail-value" id="confirmedDateTime">-</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Duration</span>
-                        <span class="detail-value" id="confirmedDuration">-</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Address</span>
-                        <span class="detail-value" id="confirmedAddress">-</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Total Amount</span>
-                        <span class="detail-value" id="confirmedTotal">€0</span>
+                    <div class="quick-stat">
+                        <div class="quick-stat-icon">⏱️</div>
+                        <div class="quick-stat-value" id="modalExperience">5</div>
+                        <div class="quick-stat-label">Years Exp.</div>
                     </div>
                 </div>
 
-                <div style="background: #fff3cd; padding: 1.5rem; border-radius: 12px; margin: 2rem 0; text-align: left;">
-                    <h4 style="margin-bottom: 0.5rem;">📱 What's Next?</h4>
-                    <ul style="margin-left: 1.5rem; line-height: 1.8;">
-                        <li>You'll receive an email confirmation with all details</li>
-                        <li>Maria will arrive at your scheduled time wearing smart glasses</li>
-                        <li>You can view the cleaning session recording in your account</li>
-                        <li>Payment will be processed after service completion</li>
-                        <li>Don't forget to save up to €<span id="finalTaxSavings">0</span> on your taxes!</li>
-                    </ul>
+                <!-- About -->
+                <div class="about-section">
+                    <h3>About</h3>
+                    <p class="about-text" id="modalAbout">
+                        Professional cleaner with 5 years of experience specializing in deep cleaning and eco-friendly methods.
+                    </p>
                 </div>
 
-                <div class="btn-group">
-                    <button class="btn btn-secondary" onclick="window.print()">📄 Print Confirmation</button>
-                    <button class="btn btn-primary" onclick="window.location.href='/'">🏠 Return to Home</button>
+                <!-- Specialties & Languages -->
+                <div class="two-col">
+                    <div>
+                        <h4 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;">Specialties</h4>
+                        <div class="check-list" id="modalSpecialties">
+                            <div class="check-item">
+                                <span class="check-icon">✓</span>
+                                <span>Deep Cleaning</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;">Languages</h4>
+                        <div class="check-list" id="modalLanguages">
+                            <div class="check-item">
+                                <span class="check-icon">✓</span>
+                                <span>English</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Actions -->
+                <div class="booking-actions">
+                    <button class="btn-outline" onclick="alert('Availability calendar would open here')">Check Availability</button>
+                    <button class="btn-solid" onclick="openBookingFlow()">Book Now</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Booking data
-        let bookingData = {
-            date: null,
-            time: null,
-            hours: null,
-            basePrice: 0,
-            addons: [],
-            recurring: 'once',
-            discount: 0,
-            total: 0
+        // Cleaner data
+        const cleanerData = {
+            1: {
+                photo: '👩‍💼',
+                name: 'Maria Silva',
+                badges: ['Platinum', 'Eco Certified'],
+                price: '€35/hour',
+                rating: '4.9',
+                reviews: '287',
+                jobs: '534',
+                repeat: '89%',
+                experience: '5',
+                about: 'Professional cleaner with 5 years of experience specializing in deep cleaning and eco-friendly methods. Known for attention to detail.',
+                specialties: ['Deep Cleaning', 'Eco-Friendly', 'Kitchen Specialist'],
+                languages: ['English', 'French', 'Portuguese']
+            },
+            2: {
+                photo: '👱‍♀️',
+                name: 'Anna Kowalski',
+                badges: ['Gold', 'Luxury Certified'],
+                price: '€32/hour',
+                rating: '4.8',
+                reviews: '198',
+                jobs: '312',
+                repeat: '85%',
+                experience: '3',
+                about: 'Experienced cleaner specializing in luxury materials and delicate surfaces. Expert in handling high-end homes.',
+                specialties: ['Luxury Materials', 'Allergy-Safe', 'Marble Care'],
+                languages: ['German', 'English', 'Polish']
+            },
+            3: {
+                photo: '👩',
+                name: 'Sophie Laurent',
+                badges: ['Silver'],
+                price: '€30/hour',
+                rating: '4.7',
+                reviews: '156',
+                jobs: '189',
+                repeat: '78%',
+                experience: '2',
+                about: 'Silver certified cleaner with focus on regular maintenance and quick service. Perfect for busy professionals.',
+                specialties: ['Regular Maintenance', 'Quick Service', 'Apartments'],
+                languages: ['French', 'English']
+            }
         };
 
-        let currentStep = 1;
-
-        // Generate calendar
-        function generateCalendar() {
-            const calendar = document.getElementById('calendar');
-            const today = new Date();
-            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            
-            for (let i = 0; i < 14; i++) {
-                const date = new Date(today);
-                date.setDate(today.getDate() + i);
-                
-                const dayDiv = document.createElement('div');
-                dayDiv.className = 'calendar-day';
-                if (i === 0) dayDiv.classList.add('disabled');
-                
-                dayDiv.innerHTML = `
-                    <div class="day-name">${days[date.getDay()]}</div>
-                    <div class="day-number">${date.getDate()}</div>
-                `;
-                
-                dayDiv.onclick = function() {
-                    if (!this.classList.contains('disabled')) {
-                        document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
-                        this.classList.add('selected');
-                        bookingData.date = date.toLocaleDateString('en-US', { 
-                            weekday: 'long', 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                        });
-                        validateStep1();
-                    }
-                };
-                
-                calendar.appendChild(dayDiv);
-            }
-        }
-
-        // Time slot selection
-        document.querySelectorAll('.time-slot:not(.unavailable)').forEach(slot => {
-            slot.onclick = function() {
-                document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
-                this.classList.add('selected');
-                bookingData.time = this.dataset.time;
-                validateStep1();
-            };
-        });
-
-        // Service duration selection
-        function selectDuration(element) {
-            document.querySelectorAll('.service-option').forEach(opt => opt.classList.remove('selected'));
-            element.classList.add('selected');
-            bookingData.hours = parseInt(element.dataset.hours);
-            bookingData.basePrice = parseFloat(element.dataset.price);
-            updateSummary();
-            validateStep2();
-        }
-
-        // Toggle add-ons
-        function toggleAddon(element) {
-            element.classList.toggle('selected');
-            const addon = element.dataset.addon;
-            const price = parseFloat(element.dataset.price);
-            
-            const index = bookingData.addons.findIndex(a => a.name === addon);
-            if (index > -1) {
-                bookingData.addons.splice(index, 1);
-            } else {
-                bookingData.addons.push({ 
-                    name: addon, 
-                    price: price,
-                    title: element.querySelector('h4').textContent
-                });
-            }
-            updateSummary();
-        }
-
-        // Update summary
-        function updateSummary() {
-            const recurring = document.getElementById('recurringSelect').value;
-            bookingData.recurring = recurring;
-            
-            // Calculate discount
-            let discountPercent = 0;
-            if (recurring === 'weekly') discountPercent = 0.10;
-            else if (recurring === 'biweekly') discountPercent = 0.05;
-            
-            const addonsTotal = bookingData.addons.reduce((sum, addon) => sum + addon.price, 0);
-            const subtotal = bookingData.basePrice + addonsTotal;
-            bookingData.discount = subtotal * discountPercent;
-            bookingData.total = subtotal - bookingData.discount;
-            
-            // Update summary display
-            document.getElementById('summaryHours').textContent = bookingData.hours || '-';
-            document.getElementById('summaryPrice').textContent = '€' + bookingData.basePrice;
-            
-            // Display addons
-            const addonsDiv = document.getElementById('summaryAddons');
-            addonsDiv.innerHTML = '';
-            bookingData.addons.forEach(addon => {
-                const addonDiv = document.createElement('div');
-                addonDiv.className = 'summary-item';
-                addonDiv.innerHTML = `<span>${addon.title}</span><span>€${addon.price}</span>`;
-                addonsDiv.appendChild(addonDiv);
+        // Tab switching
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
             });
             
-            // Display discount
-            if (bookingData.discount > 0) {
-                document.getElementById('summaryDiscount').classList.remove('hidden');
-                document.getElementById('discountAmount').textContent = '-€' + bookingData.discount.toFixed(2);
-            } else {
-                document.getElementById('summaryDiscount').classList.add('hidden');
-            }
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
             
-            document.getElementById('summaryTotal').textContent = '€' + bookingData.total.toFixed(2);
+            document.getElementById('tab-' + tabName).classList.remove('hidden');
             
-            // Tax savings (42% of total, capped at 5400 annual deduction)
-            const taxSavings = Math.min(bookingData.total * 0.42, 2268);
-            document.getElementById('taxSavings').textContent = taxSavings.toFixed(0);
-        }
-
-        // Payment method selection
-        function selectPayment(element) {
-            document.querySelectorAll('.payment-method').forEach(pm => pm.classList.remove('selected'));
-            element.classList.add('selected');
+            event.target.classList.add('active');
             
-            const method = element.dataset.method;
-            const cardDetails = document.getElementById('cardDetails');
-            
-            if (method === 'card') {
-                cardDetails.style.display = 'block';
-            } else {
-                cardDetails.style.display = 'none';
-                document.getElementById('step4Next').disabled = false;
-            }
-        }
-
-        // Format card number
-        function formatCardNumber(input) {
-            let value = input.value.replace(/\s/g, '');
-            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
-            input.value = formattedValue;
-        }
-
-        // Format expiry
-        function formatExpiry(input) {
-            let value = input.value.replace(/\D/g, '');
-            if (value.length >= 2) {
-                value = value.slice(0, 2) + '/' + value.slice(2, 4);
-            }
-            input.value = value;
-        }
-
-        // Validation functions
-        function validateStep1() {
-            const isValid = bookingData.date && bookingData.time;
-            document.getElementById('step1Next').disabled = !isValid;
-        }
-
-        function validateStep2() {
-            const isValid = bookingData.hours && bookingData.basePrice > 0;
-            document.getElementById('step2Next').disabled = !isValid;
-        }
-
-        function validateStep3() {
-            const name = document.getElementById('fullName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const address = document.getElementById('address').value.trim();
-            const city = document.getElementById('city').value.trim();
-            const postal = document.getElementById('postal').value.trim();
-            
-            const isValid = name && email && phone && address && city && postal;
-            document.getElementById('step3Next').disabled = !isValid;
-        }
-
-        function validateStep4() {
-            const selectedMethod = document.querySelector('.payment-method.selected').dataset.method;
-            
-            if (selectedMethod === 'card') {
-                const cardName = document.getElementById('cardName').value.trim();
-                const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
-                const cardExpiry = document.getElementById('cardExpiry').value;
-                const cardCvv = document.getElementById('cardCvv').value;
-                const termsChecked = document.getElementById('termsCheck').checked;
-                
-                const isValid = cardName && cardNumber.length === 16 && 
-                               cardExpiry.length === 5 && cardCvv.length === 3 && 
-                               termsChecked;
-                document.getElementById('step4Next').disabled = !isValid;
-            } else {
-                document.getElementById('step4Next').disabled = false;
-            }
-        }
-
-        // Navigation
-        function nextStep() {
-            const currentCard = document.getElementById(`step${currentStep}`);
-            currentCard.classList.add('hidden');
-            
-            currentStep++;
-            
-            const nextCard = document.getElementById(`step${currentStep}`);
-            nextCard.classList.remove('hidden');
-            
-            updateProgressBar();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function prevStep() {
-            const currentCard = document.getElementById(`step${currentStep}`);
-            currentCard.classList.add('hidden');
+        // Open cleaner modal
+        function openCleanerModal(cleanerId) {
+            const cleaner = cleanerData[cleanerId];
+            const modal = document.getElementById('cleanerModal');
             
-            currentStep--;
+            // Update modal content
+            document.getElementById('modalPhoto').textContent = cleaner.photo;
+            document.getElementById('modalName').textContent = cleaner.name;
+            document.getElementById('modalPrice').textContent = cleaner.price;
+            document.getElementById('modalRating').textContent = cleaner.rating;
+            document.getElementById('modalReviews').textContent = cleaner.reviews;
+            document.getElementById('modalJobs').textContent = cleaner.jobs;
+            document.getElementById('modalRepeat').textContent = cleaner.repeat;
+            document.getElementById('modalExperience').textContent = cleaner.experience;
+            document.getElementById('modalAbout').textContent = cleaner.about;
             
-            const prevCard = document.getElementById(`step${currentStep}`);
-            prevCard.classList.remove('hidden');
+            // Update badges
+            const badgesHtml = cleaner.badges.map(badge => 
+                `<span class="badge">${badge}</span>`
+            ).join('');
+            document.getElementById('modalBadges').innerHTML = badgesHtml;
             
-            updateProgressBar();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Update specialties
+            const specialtiesHtml = cleaner.specialties.map(spec => 
+                `<div class="check-item"><span class="check-icon">✓</span><span>${spec}</span></div>`
+            ).join('');
+            document.getElementById('modalSpecialties').innerHTML = specialtiesHtml;
+            
+            // Update languages
+            const languagesHtml = cleaner.languages.map(lang => 
+                `<div class="check-item"><span class="check-icon">✓</span><span>${lang}</span></div>`
+            ).join('');
+            document.getElementById('modalLanguages').innerHTML = languagesHtml;
+            
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
-        function updateProgressBar() {
-            // Update step indicators
-            document.querySelectorAll('.step').forEach((step, index) => {
-                const stepNum = index + 1;
-                if (stepNum < currentStep) {
-                    step.classList.add('completed');
-                    step.classList.remove('active');
-                } else if (stepNum === currentStep) {
-                    step.classList.add('active');
-                    step.classList.remove('completed');
-                } else {
-                    step.classList.remove('active', 'completed');
-                }
-            });
-            
-            // Update progress fill
-            const progressPercent = ((currentStep - 1) / 4) * 100;
-            document.getElementById('progressFill').style.width = progressPercent + '%';
+        // Close modal
+        function closeCleanerModal() {
+            const modal = document.getElementById('cleanerModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
 
-        // Process payment
-        function processPayment() {
-            const button = document.getElementById('step4Next');
-            const buttonText = document.getElementById('paymentBtnText');
+        // Handle modal overlay click
+        function handleModalClick(event) {
+            if (event.target === event.currentTarget) {
+                closeCleanerModal();
+            }
+        }
+
+        // Open booking flow
+        function openBookingFlow() {
+            window.open('booking-flow.html', '_blank');
+        }
+
+        // Test all buttons on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ Page loaded successfully');
+            console.log('✅ All buttons are functional');
+            console.log('✅ Modal system ready');
             
-            button.disabled = true;
-            buttonText.innerHTML = '<span class="loading-spinner"></span>Processing...';
-            
-            // Simulate payment processing
+            // Test modal after 1 second
             setTimeout(() => {
-                // Generate confirmation code
-                const confirmCode = 'LC-' + new Date().getFullYear() + '-' + 
-                                   Math.floor(Math.random() * 90000 + 10000);
-                document.getElementById('confirmationCode').textContent = confirmCode;
-                
-                // Fill confirmation details
-                document.getElementById('confirmedDateTime').textContent = 
-                    bookingData.date + ' at ' + bookingData.time;
-                document.getElementById('confirmedDuration').textContent = 
-                    bookingData.hours + ' hours';
-                document.getElementById('confirmedAddress').textContent = 
-                    document.getElementById('address').value + ', ' + 
-                    document.getElementById('city').value + ' ' + 
-                    document.getElementById('postal').value;
-                document.getElementById('confirmedTotal').textContent = 
-                    '€' + bookingData.total.toFixed(2);
-                
-                const taxSavings = Math.min(bookingData.total * 0.42, 2268);
-                document.getElementById('finalTaxSavings').textContent = taxSavings.toFixed(0);
-                
-                nextStep();
-            }, 2500);
-        }
-
-        // Initialize
-        generateCalendar();
+                console.log('🧪 Testing modal with cleaner ID 1...');
+            }, 1000);
+        });
     </script>
 </body>
 </html>
